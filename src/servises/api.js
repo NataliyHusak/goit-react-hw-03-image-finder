@@ -12,4 +12,6 @@ export const get = (text, page) => {
   );
 };
 
-export const dsdddd = () => null;
+// заглушка:
+
+export const ds = () => null;

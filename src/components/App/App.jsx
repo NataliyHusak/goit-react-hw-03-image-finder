@@ -44,6 +44,7 @@ export default class App extends Component {
       .catch(error => {
         throw new Error(error);
       })
+
       .finally(() => {
         const { images } = this.state;
         if (
@@ -85,14 +86,14 @@ export default class App extends Component {
 
   render() {
     const { images, isLoading, isModal, imageId, error } = this.state;
-    const mapper = elements => {
-      return elements.map(element => ({
-        imageURL: element.webformatURL,
-        ...element
+    const mapper = images => {
+      return images.map(image => ({
+        imageURL: image.webformatURL,
+        ...image
       }));
     };
-    const fined = (elements, id) => {
-      return elements.find(element => element.id === id);
+    const fined = (images, id) => {
+      return images.find(image => image.id === id);
     };
     const imgModal = fined(images, imageId);
     return (
@@ -104,7 +105,7 @@ export default class App extends Component {
           openModal={this.handleClickIsOpenModal}
         />
 
-        {images.length && <Button onClick={this.handleClickOnMore} />}
+        {images.length > 0 && <Button onClick={this.handleClickOnMore} />}
 
         {isModal && (
           <Modal closeModal={this.handleClickIsCloseModal}>

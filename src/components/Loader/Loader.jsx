@@ -11,7 +11,7 @@ const Loader = () => {
         color="#3f51b5"
         height={100}
         width={100}
-        timeout={4000}
+        timeout={1000}
       />
     </div>
   );

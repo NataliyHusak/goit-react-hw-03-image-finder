@@ -5,7 +5,7 @@ import styles from "./ImageGallery.module.css";
 
 const ImageGallery = ({ data, openModal }) => (
   <div>
-    {data.length && (
+    {data.length > 0 && (
       <ul className={styles.ImageGallery}>
         {data.map(item => (
           <ImageGalleryItem data={item} onClick={openModal} key={item.id} />
